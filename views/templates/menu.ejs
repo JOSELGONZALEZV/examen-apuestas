@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg  sticky-top navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><strong> <i class="fa fa-home" style="font-size:48px;color:rgb(13, 37, 172)" aria-hidden="true"></i>Home</strong></a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/newpag1"><strong> <i class="fa fa-pagelines" style="font-size:48px;color:rgb(13, 37, 172)" aria-hidden="true"></i>New Contact</strong></a>
+                </li> 
+                <li class="nav-item active">
+                    <a class="nav-link" href="/newpag2"><strong> <i class="fa fa-pagelines" style="font-size:48px;color:rgb(13, 37, 172)" aria-hidden="true"></i>Page two</strong></a>
+                </li>            
+            </ul>
+        </div>
+        <a class="navbar-brand">Welcome:<span>  </span><%=user.name%><span> - </span>(access:<%=user.rol%>)</a>
+        <div class="nav navbar-nav navbar-right">
+            <a href="/logout" class="navbar-brand"><strong><i class="fa fa-sign-out" style="font-size:48px;color:rgb(13, 19, 196)" aria-hidden="true"></i>
+                    LOGOUT</strong></a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bid Now</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/img1.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CRoboto:300,400,500" media="all">
+    <link href="login.ejs"stylesheet">
+    <link href="/css/icomoon.css" rel="stylesheet">
+    <link href="/css/font-awesome.min copy.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/queries.css" rel="stylesheet">
+
+</head>
+<%- include('templates/header', {titulo: "Pagina Usuario Pro"}) %>
+<body>
+    
+    <%- include('templates/menu') %>
+
+      
+    <div>
+      <p><%=user.name%> !</p>
+      <p> </p>
+      <p></p>
+    </div>
+    <br>
+    <br>
+    <div class="conteiner">
+        <div class= "row">
+          <div class= "col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="img/avion.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Avion</h5>
+                <p class="card-text"></p>
+                    <form action="/rematar" method="post">
+                      <input type="number" class="" name="valorOferta">
+                      <input type="hidden" name="producto" value="1">
+                      <input type="submit" class="btn btn-primary" value="enviar">
+                  </form>
+              </div>
+            </div>
+          </div>
+          <div class= "col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="img/imagenauto.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Auto</h5>
+                <p class="card-text"></p>
+                    <form action="/rematar" method="post">
+                      <input type="number"  name="valorOferta">
+                      <input type="hidden" name="producto" value="2">
+                      <input type="submit" class="btn btn-primary" value="enviar">
+                    </form>
+              </div>
+            </div>
+            <div> 
+                <div class = "card-title mt-5">
+                  <h3>Ofertas</h3>
+                      <table class="table text-light"></table>
+                        <tbody>
+                          <% for (oferta of ofertaUsuario) {%>
+                            <% if (oferta.producto ==2) {%>
+                              <tr>
+                                <td scope = "row">
+                                  <%= oferta.User.name %>
+                                  <%= oferta.valorOferta %>
+                                </td>
+                              </tr>
+                            <% } %>
+                          <% } %>
+                        </tbody>
+                      </table>
+                </div>
+
+
+            </div>
+          </div>
+          <div class= "col-4">
+            <div class="card" style="width: 18rem;">
+              <img src= "img/mansion.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Mansion</h5>
+                <p class="card-text"></p>
+                    <form action="/rematar" method="post">
+                      <input type="number" class="" name="valorOferta">
+                      <input type="hidden" name="producto" value="3">
+                      <input type="submit" class="btn btn-primary" value="enviar">
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+  <script>
+    
+    
+
+  </script>
+
+</body>
+
+</html>
