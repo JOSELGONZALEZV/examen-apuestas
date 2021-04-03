@@ -36,10 +36,31 @@
                 <h5 class="card-title">Avion</h5>
                 <p class="card-text"></p>
                     <form action="/rematar" method="post">
-                      <input type="number" class="" name="valorOferta">
+                      <input required type="number" class="" name="valorOferta">
                       <input type="hidden" name="producto" value="1">
                       <input type="submit" class="btn btn-primary" value="enviar">
                   </form>
+              </div>
+            </div>
+            <div> 
+              <div class = "card-title mt-5">
+                <h3>Ofertas</h3>
+                    <table class="table text-light"></table>
+                      <tbody>
+                        <% for (oferta of ofertaUsuario) {%>
+                          <% if (oferta.producto ==1) {%>
+                            <tr>
+                              <td scope = "row">
+                                <%= oferta.User.name %>
+                              </td>
+                              <td>
+                                <%= oferta.valorOferta %>
+                              </td>
+                            </tr>
+                          <% } %>
+                        <% } %>
+                      </tbody>
+                    </table>
               </div>
             </div>
           </div>
@@ -50,7 +71,7 @@
                 <h5 class="card-title">Auto</h5>
                 <p class="card-text"></p>
                     <form action="/rematar" method="post">
-                      <input type="number"  name="valorOferta">
+                      <input required type="number"  name="valorOferta">
                       <input type="hidden" name="producto" value="2">
                       <input type="submit" class="btn btn-primary" value="enviar">
                     </form>
@@ -66,6 +87,8 @@
                               <tr>
                                 <td scope = "row">
                                   <%= oferta.User.name %>
+                                </td>
+                                <td>
                                   <%= oferta.valorOferta %>
                                 </td>
                               </tr>
@@ -74,9 +97,7 @@
                         </tbody>
                       </table>
                 </div>
-
-
-            </div>
+              </div>
           </div>
           <div class= "col-4">
             <div class="card" style="width: 18rem;">
@@ -85,14 +106,37 @@
                 <h5 class="card-title">Mansion</h5>
                 <p class="card-text"></p>
                     <form action="/rematar" method="post">
-                      <input type="number" class="" name="valorOferta">
+                      <input required type="number" class="" name="valorOferta">
                       <input type="hidden" name="producto" value="3">
                       <input type="submit" class="btn btn-primary" value="enviar">
                   </form>
               </div>
             </div>
-          </div>
-        </div>
+            <div> 
+              <div class = "card-title mt-5">
+                <h3>Ofertas</h3>
+                    <table class="table text-light"></table>
+                      <tbody>
+                        <% for (oferta of ofertaUsuario) {%>
+                          <% if (oferta.producto ==3) {%>
+                            <tr>
+                              <td>
+                                <%= oferta.User.name %>
+                              </td>
+                              <td>
+                                <%= oferta.valorOferta %>
+                              </td>
+                            </tr>
+                          <% } %>
+                        <% } %>
+                      </tbody>
+                    </table>
+              </div>
+                <form action="/resultado" method="GET">
+                  <input type="submit" class="btn btn-primary" value="terminar subasta">                
+                </form>
+            </div>
+      </div>
     </div>
     
 

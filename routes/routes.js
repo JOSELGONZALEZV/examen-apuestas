@@ -19,7 +19,8 @@ function checkLogin(req, res, next) {
 //qui enviamos la informacion de la base de datos para mostrar 
 router.get("/", [checkLogin ] , async (req,res) => {
     const ofertaUsuario = await Oferta.findAll({
-        include:[{model: User}]
+        include:[{model: User}],
+        order:[['valorOferta', 'DESC']]
     });
 
 
@@ -30,23 +31,28 @@ router.get("/", [checkLogin ] , async (req,res) => {
 });
 
 
-router.get("/oferta", [checkLogin], (req,res) => {
+router.get("/resultado", [checkLogin], async (req,res) => {
 
+    const resultados = await Oferta.findAll({
+        include:[{model: User}]
 
-    const errors = req.flash("errors");
-    const mensajes = req.flash("mensajes");
-
-    res.render("oferta.ejs",{ errors, mensajes })
-});
-
-router.get("/newpag2", [checkLogin], (req,res) => {
-
+        
+    });
+    
+    
 
     const errors = req.flash("errors");
     const mensajes = req.flash("mensajes");
 
-    res.render("newpag2.ejs",{ errors, mensajes })
+    res.render("resultado.ejs",{ errors, mensajes, resultados });
+    
+    Oferta.destroy({
+        where: {},
+        truncate: true
+        });
+    
 });
+
 
 //ruta para guardar los mensaje en la base de dato por id de user en session
 router.post('/rematar', [checkLogin ], async (req,res) => {
