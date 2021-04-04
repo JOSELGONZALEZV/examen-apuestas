@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Resultado Remate</title>
+        <title>Auction Result</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="img/img3.png" type="image/png">
@@ -25,9 +25,9 @@
                 <div class="card" style="width: 18rem;">
                     <img src="img/avion.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Avion</h5>
-                      <p class="card-text">Adjudicado a: <%= resultados.filter(x => x.producto == 1) [0].User.name%></p>
-                      <p class="card-text">Por el valor de: <%= resultados.filter(x => x.producto == 1) [0].valorOferta%></p>                       
+                      <h5 class="card-title">Luxury Plane</h5>
+                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 1) [0].User.name%></p>
+                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 1) [0].valorOferta%></p>                       
                     </div>
                 </div>
             </div>
@@ -35,9 +35,9 @@
                 <div class="card" style="width: 18rem;">
                     <img src="img/imagenauto.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Auto</h5>
-                      <p class="card-text">Adjudicado a: <%= resultados.filter(x => x.producto == 2) [0].User.name%></p>
-                      <p class="card-text">Por el valor de :<%= resultados.filter(x => x.producto == 2) [0].valorOferta%></p>  
+                      <h5 class="card-title">High-End Car</h5>
+                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 2) [0].User.name%></p>
+                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 2) [0].valorOferta%></p>  
                     </div>
                 </div>
             </div>
@@ -46,12 +46,18 @@
                     <img src="img/mansion.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Mansion</h5>
-                      <p class="card-text">Adjudicado a: <%= resultados.filter(x => x.producto == 3) [0].User.name%></p>
-                      <p class="card-text">Por el valor de: <%= resultados.filter(x => x.producto == 3) [0].valorOferta%></p>   
+                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 3) [0].User.name%></p>
+                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 3) [0].valorOferta%></p>   
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+    <div>
+        <form action="/" method="GET">
+            <input type="submit" class="btn btn-primary" value="New Auction">                
+        </form>
     </div>
 
            

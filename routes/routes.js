@@ -38,7 +38,16 @@ router.get("/resultado", [checkLogin], async (req,res) => {
 
         
     });
-    
+    const avion = resultados.filter(x=> x.producto==1);
+    const auto = resultados.filter(x=> x.producto==2);
+    const mansion = resultados.filter(x=> x.producto==3);
+
+    if(avion.lenght == 0 || auto.lenght == 0 || mansion.length == 0){
+        req.flash('errors', "existen productos que no tienen oferta.");
+        return res.redirect('/');
+    }
+
+        
     
 
     const errors = req.flash("errors");
@@ -61,7 +70,7 @@ router.post('/rematar', [checkLogin ], async (req,res) => {
    
 
     if(req.body.valorOferta == ""){
-        req.flash('errors', "ingresar un numero de 9 digitos");
+        req.flash('errors', "ingresar una oferta");
         return res.redirect('/rematar');
     }
     else{
