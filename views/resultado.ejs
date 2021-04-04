@@ -22,32 +22,32 @@
     <div class= "conteiner">
         <div class ="row">
             <div class= "col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/avion.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem; height: 30rem;">
+                    <img src="img/avion.jpg" class="card-img-top" style="width: 18rem; height: 15rem;" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Luxury Plane</h5>
-                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 1) [0].User.name%></p>
-                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 1) [0].valorOferta%></p>                       
+                      <p>Awarded To: <%=resultados.filter(x=> x.producto==1)[0].User.name %></p>
+                      <p>In the Value Of : U$ <%=resultados.filter(x=> x.producto==1)[0].valorOferta %></p>                       
                     </div>
                 </div>
             </div>
             <div class= "col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/imagenauto.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem; height: 30rem;">
+                    <img src="img/imagenauto.jpg" class="card-img-top" style="width: 18rem; height: 15rem;" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">High-End Car</h5>
-                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 2) [0].User.name%></p>
-                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 2) [0].valorOferta%></p>  
+                      <p>Awarded To: <%=resultados.filter(x=> x.producto==2)[0].User.name %></p>
+                      <p>In the Value Of : U$ <%=resultados.filter(x=> x.producto==2)[0].valorOferta %></p>  
                     </div>
                 </div>
             </div>
             <div class= "col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/mansion.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem; height: 30rem;">
+                    <img src="img/mansion.jpg" class="card-img-top" style="width: 18rem; height: 15rem;" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Mansion</h5>
-                      <p class="card-text">Awarded To: <%= resultados.filter(x => x.producto == 3) [0].User.name%></p>
-                      <p class="card-text">In the Value Of : U$ <%= resultados.filter(x => x.producto == 3) [0].valorOferta%></p>   
+                      <p>Awarded To: <%=resultados.filter(x=> x.producto==3)[0].User.name %></p>
+                      <p>In the Value Of : U$ <%=resultados.filter(x=> x.producto==3)[0].valorOferta %></p>   
                     </div>
                 </div>
             </div>

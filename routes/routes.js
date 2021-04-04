@@ -18,26 +18,33 @@ function checkLogin(req, res, next) {
 
 //qui enviamos la informacion de la base de datos para mostrar 
 router.get("/", [checkLogin ] , async (req,res) => {
-    const ofertaUsuario = await Oferta.findAll({
+    const resultados = await Oferta.findAll({
         include:[{model: User}],
         order:[['valorOferta', 'DESC']]
     });
-
+    const usuarios = await User.findAll({
+        include:[{model: Oferta}],
+    });
 
     const errors = req.flash("errors");
     const mensajes = req.flash("mensajes");
 
-    res.render("usuariopro.ejs",{errors, mensajes, ofertaUsuario })
+    res.render("usuariopro.ejs",{errors, mensajes, resultados, usuarios })
 });
 
 
 router.get("/resultado", [checkLogin], async (req,res) => {
 
     const resultados = await Oferta.findAll({
-        include:[{model: User}]
-
+        include:[{model: User}],
+        order:[['valorOferta', 'DESC']]
         
     });
+
+    const usuarios = await User.findAll({
+        include:[{model: Oferta}],
+    });
+
     const avion = resultados.filter(x=> x.producto==1);
     const auto = resultados.filter(x=> x.producto==2);
     const mansion = resultados.filter(x=> x.producto==3);
@@ -46,21 +53,23 @@ router.get("/resultado", [checkLogin], async (req,res) => {
         req.flash('errors', "existen productos que no tienen oferta.");
         return res.redirect('/');
     }
-
-        
-    
+ 
 
     const errors = req.flash("errors");
     const mensajes = req.flash("mensajes");
 
-    res.render("resultado.ejs",{ errors, mensajes, resultados });
-    
     Oferta.destroy({
         where: {},
         truncate: true
         });
+
+    res.render("resultado.ejs",{ errors, mensajes, resultados, usuarios });
+    
+    
+    
     
 });
+
 
 
 //ruta para guardar los mensaje en la base de dato por id de user en session
