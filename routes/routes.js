@@ -37,7 +37,7 @@ router.get("/resultado", [checkLogin], async (req,res) => {
 
     const resultados = await Oferta.findAll({
         include:[{model: User}],
-        order:[['valorOferta', 'DESC']]
+         order:[['valorOferta', 'DESC']]
         
     });
 
